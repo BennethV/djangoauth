@@ -18,7 +18,8 @@
 				  {% csrf_token %}
 
 				  {{ form.as_p }}
-				  <button type="submit" class="btn btn-primary">Login</button> <a href="{% url 'signup' %}">Signup</a>
+				  <button type="submit" class="btn btn-primary">Login</button> <a href="{% url 'signup' %}">Signup</a><br>
+				  <a href="{% url 'password_reset' %}">forget password</a>
 				</form>
 			</article>
 		</div>
