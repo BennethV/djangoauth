@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #Custom project
-    'staffs'
+    'staffs',
+    'data'
 ]
 
 MIDDLEWARE = [
@@ -76,12 +77,39 @@ WSGI_APPLICATION = 'usermanager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+DATABASE_ROUTERS = ['usermanager.db_router.UserManagerDatabaseRouter']
+
+
 DATABASES = {
-    'default': {
+    'default': {},
+    'auth_db': {
+        'NAME': os.path.join(BASE_DIR, 'auth_db.db'),
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
+    'primary': {
+        'NAME': os.path.join(BASE_DIR, 'primary.db'),
+        'ENGINE': 'django.db.backends.sqlite3',
+    },
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Password validation
